@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <!-- properties 소스 정보 -->
+  <properties resource="wellsome/mybatis/db.properties"/>
+  
+  <typeAliases>
+  	<typeAlias type="wellsome.model.CategoryDTO" alias="categoryDTO"/>
+  	<typeAlias type="wellsome.model.ProductDTO" alias="productDTO"/>
+  	<typeAlias type="wellsome.model.BoardDTO" alias="boardDTO"/>
+  	<typeAlias type="wellsome.model.UserDTO" alias="userDTO"/>
+  </typeAliases>
+  	
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="${driver}"/>
+        <property name="url" value="${url}"/>
+        <property name="username" value="${username}"/>
+        <property name="password" value="${password}"/>
+      </dataSource>
+    </environment>
+  </environments>
+  <mappers>
+    <mapper resource="wellsome/mybatis/CategoryMapper.xml"/>
+    <mapper resource="wellsome/mybatis/ProductMapper.xml"/>
+    <mapper resource="wellsome/mybatis/BoardMapper.xml"/>
+    <mapper resource="wellsome/mybatis/UserMapper.xml"/>
+  </mappers>
+</configuration>
